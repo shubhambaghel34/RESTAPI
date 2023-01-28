@@ -1,15 +1,19 @@
 import { application } from "express";
-import { addNewContact, deleteContact, getContacts,getContactsbyId, updateContacts } from "../controllers/crmController";
+import {
+  addNewContact,
+  deleteContact,
+  getContacts,
+  getContactsbyId,
+  updateContacts,
+} from "../controllers/crmController";
 const routes = (app) => {
   app
     .route("/contact")
 
-    .get((req,res,next)=>{
-next();
-    },getContacts)
-    .post(addNewContact)
-
-   
+    .get((req, res, next) => {
+      next();
+    }, getContacts)
+    .post(addNewContact);
 
   app
     .route("/contact/:contactId")
@@ -17,7 +21,7 @@ next();
 
     //update contact
     .put(updateContacts)
-    
+
     //delete contact
     .delete(deleteContact);
 };
